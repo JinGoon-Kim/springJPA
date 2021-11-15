@@ -83,6 +83,7 @@ public class OrderServiceTest {
         book.setName(name);
         book.setPrice(price);
         book.setStockQuantity(stockQuantity);
+        em.persist(book);
         return book;
     }
 
