@@ -29,7 +29,7 @@ public class OrderRepository {
         String jpql = "select o from Order o join o.member m";
         boolean isFirstCondition = true;
 
-        // 주문 상태 검색
+        //주문 상태 검색
         if (orderSearch.getOrderStatus() != null) {
             if (isFirstCondition) {
                 jpql += " where";
@@ -37,10 +37,10 @@ public class OrderRepository {
             } else {
                 jpql += " and";
             }
-            jpql += " o.stauts = :status";
+            jpql += " o.status = :status";
         }
 
-        // 회원 이름 검색
+        //회원 이름 검색
         if (StringUtils.hasText(orderSearch.getMemberName())) {
             if (isFirstCondition) {
                 jpql += " where";
@@ -62,7 +62,6 @@ public class OrderRepository {
         }
 
         return query.getResultList();
-
         /*
         return em.createQuery("jpql, Order.class")
                 .setMaxResults(1000)
